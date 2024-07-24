@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <RollingFile name="RollingFileAppender" fileName="C:/Users/Bilge/Desktop/Timer-gün-ay-yıl.log"
+                     filePattern="C:/Users/Bilge/Desktop/Timer-gün-ay-yıl.log">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} [%t] %-5level %logger{36} - %msg%n </Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="DebugLogger" level="debug" additivity="false">
+            <AppenderRef ref="RollingFileAppender"/>
+        </Logger>
+        <Logger name="InfoLogger" level="info" additivity="false">
+            <AppenderRef ref="RollingFileAppender"/>
+        </Logger>
+        <Logger name="ErrorLogger" level="error" additivity="false">
+            <AppenderRef ref="RollingFileAppender"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="RollingFileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
